@@ -56,7 +56,7 @@ export const signin = (email, password) => async (dispatch) => {
 
 export const signout = () => async (dispatch) => {
   await axios.post("https://brians-blog-api.herokuapp.com/api/v1/auth/logout");
-  localStorage.removeItem("userInfo");
+  localStorage.removeItem("userInfor");
 
   dispatch({ type: USER_SIGNOUT });
 };
