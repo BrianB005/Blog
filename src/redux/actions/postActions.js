@@ -20,7 +20,7 @@ export const getAllPosts = () => async (dispatch) => {
   dispatch({ type: GET_ALL_POSTS_REQUEST });
   try {
     const { data } = await axios.get(
-      "https://brians-blog-api.herokuapp.com/api/v1/posts"
+      "https://my-blogs-api-a3b6138ba116.herokuapp.com/api/v1/posts"
     );
     dispatch({ type: GET_ALL_POSTS_SUCCESS, payload: data });
   } catch (error) {
@@ -38,7 +38,7 @@ export const getPost = (postId) => async (dispatch) => {
   dispatch({ type: GET_POST_REQUEST, payload: postId });
   try {
     const { data } = await axios.get(
-      `https://brians-blog-api.herokuapp.com/api/v1/posts/${postId}`
+      `https://my-blogs-api-a3b6138ba116.herokuapp.com/api/v1/posts/${postId}`
     );
     dispatch({ type: GET_POST_SUCCESS, payload: data });
     // console.log(data);
@@ -58,7 +58,7 @@ export const addPost = (post) => async (dispatch, getState) => {
   const userInfo = getState().userSignin;
   try {
     await axios.post(
-      "https://brians-blog-api.herokuapp.com/api/v1/posts",
+      "https://my-blogs-api-a3b6138ba116.herokuapp.com/api/v1/posts",
       post,
       {
         headers: {
@@ -81,7 +81,7 @@ export const addPost = (post) => async (dispatch, getState) => {
 export const updatePost = (post) => async (dispatch) => {
   dispatch({ type: UPDATE_POST_REQUEST, payload: post });
   try {
-    await axios.put("");
+    await axios.put("https://my-blogs-api-a3b6138ba116.herokuapp.com/");
     dispatch({ type: UPDATE_POST_SUCCESS });
   } catch (error) {
     dispatch({
@@ -98,7 +98,7 @@ export const deletePost = (postId) => async (dispatch, getState) => {
   const userInfo = getState().userSignin;
   try {
     await axios.delete(
-      `https://brians-blog-api.herokuapp.com/api/v1/posts/${postId}`,
+      `https://my-blogs-api-a3b6138ba116.herokuapp.com/api/v1/posts/${postId}`,
 
       {
         headers: {

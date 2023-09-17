@@ -13,7 +13,7 @@ export const register = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
   try {
     const { data } = await axios.post(
-      "https://brians-blog-api.herokuapp.com/api/v1/auth/register",
+      "https://my-blogs-api-a3b6138ba116.herokuapp.com/api/v1/auth/register",
       {
         name,
         email,
@@ -38,7 +38,7 @@ export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
     const { data } = await axios.post(
-      "https://brians-blog-api.herokuapp.com/api/v1/auth/login",
+      "https://my-blogs-api-a3b6138ba116.herokuapp.com/api/v1/auth/login",
       { email, password }
     );
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
@@ -55,7 +55,9 @@ export const signin = (email, password) => async (dispatch) => {
 };
 
 export const signout = () => async (dispatch) => {
-  await axios.post("https://brians-blog-api.herokuapp.com/api/v1/auth/logout");
+  await axios.post(
+    "https://my-blogs-api-a3b6138ba116.herokuapp.com/api/v1/auth/logout"
+  );
   localStorage.removeItem("userInfor");
 
   dispatch({ type: USER_SIGNOUT });
